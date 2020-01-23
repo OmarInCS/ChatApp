@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node server/server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon server/server.js",
+    "test": "jest",
+    "test-watch": "nodemon --exec \"npm test\""
   },
   "engines": {
     "node": "v10.16.0"
@@ -15,6 +16,8 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
+    "jest": "^25.1.0",
+    "jquery": "^3.4.1",
     "socket.io": "^2.3.0"
   }
 }

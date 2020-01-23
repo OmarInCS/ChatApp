@@ -8,9 +8,17 @@
 </head>
 <body>
     <p>Welcome to the chat app</p>
+    <form id=" " action="">
+        <input id="tf-message" type="text" placeholder="Write your message">
+        <button id="bt-send">Send</button>
+        <button id="bt-location">Send Location</button>
+    </form>
+    <div id="all-messages">
 
+    </div>
 
     <script src="/socket.io/socket.io.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
