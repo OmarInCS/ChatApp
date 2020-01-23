@@ -1,3 +1,4 @@
+
 const socket = io();
 socket.on("connect", () => {
     console.log("Connected to server");
@@ -9,19 +10,30 @@ socket.on("disconnect", () => {
 
 socket.on("newMessage", (message) => {
     console.log(`New Message: ${message.text}`);
+    const time = moment(message.createdAt).format("LT");
     const div = document.createElement("div");
-    div.innerText = `${message.from}: ${message.text}`;
+    div.setAttribute("class", "message");
+    const template = $("#message-template").html();
+    div.innerHTML = Mustache.render(template, {
+        from: message.from,
+        text: message.text,
+        createdAt: time
+    });
     $("#all-messages").append(div);
 });
 
 socket.on("newLocationMessage", (message) => {
     console.log(`New Location Message: ${message.url}`);
+    const time = moment(message.createdAt).format("LT");
     const div = document.createElement("div");
-    const a = document.createElement("a");
-    a.innerText = `${message.from}: My Current Location`;
-    a.setAttribute("target", "_blank");
-    a.setAttribute("href", `${message.url}`);
-    div.appendChild(a);
+    div.setAttribute("class", "message");
+    const template = $("#location-message-template").html();
+    div.innerHTML = Mustache.render(template, {
+        from: message.from,
+        url: message.url,
+        createdAt: time
+    });
+    
     $("#all-messages").append(div);
 });
 
