@@ -1,55 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Chat App</title>
+    <title>Join | Chat App</title>
     <link rel="stylesheet" href="css/index.css">
 </head>
-
 <body>
-    <aside>
-        <h1>Rooms</h1>
-    </aside>
-    <main>
-        <div id="all-messages"></div>
-        <form id=" " action="">
-            <input id="tf-message" type="text" placeholder="Write your message">
-            <button id="bt-send">Send</button>
-            <button id="bt-location">Send Location</button>
-        </form>
-    </main>
-
-
-    <script id="message-template" type="text/template">
-        <div class="message_title">
-            <h4>{{from}}</h4>
-            <span>{{createdAt}}</span>
+    <form action="./chat.html">
+        <h1>Join Chat</h1>
+        <div>
+            <span>Display Name</span>
+            <input type="text" name="tf-name" autofocus>
         </div>
-        <div class="message_body">
-            {{text}}
+        <div>
+            <span>Room Name</span>
+            <input type="text" name="tf-room">
         </div>
-    </script>
-
-    <script id="location-message-template" type="text/template">
-        <div class="message_title">
-            <h4>{{from}}</h4>
-            <span>{{createdAt}}</span>
-        </div>
-        <div class="message_body">
-            <a href="{{url}}" target="_blank" rel="noopener noreferrer">
-                My Location
-            </a>
-        </div>
-    </script>
-
-    <script src="/socket.io/socket.io.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="js/libs/moment.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/3.1.0/mustache.min.js"></script>
-    <script src="script.js"></script>
+        <button type="submit">Join</button>
+    </form>
 </body>
-
 </html>

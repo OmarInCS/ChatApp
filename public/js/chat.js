@@ -20,6 +20,7 @@ socket.on("newMessage", (message) => {
         createdAt: time
     });
     $("#all-messages").append(div);
+    scrollToBottom();
 });
 
 socket.on("newLocationMessage", (message) => {
@@ -35,6 +36,7 @@ socket.on("newLocationMessage", (message) => {
     });
     
     $("#all-messages").append(div);
+    scrollToBottom();
 });
 
 $("#bt-send").click(() => {
@@ -61,3 +63,8 @@ $("#bt-location").click(() => {
 
     return false;
 });
+
+function scrollToBottom() {
+    let view = document.querySelector(".message:last-child");
+    view.scrollIntoView();
+}
