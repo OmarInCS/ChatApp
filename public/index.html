@@ -12,11 +12,11 @@
         <h1>Join Chat</h1>
         <div>
             <span>Display Name</span>
-            <input type="text" name="tf-name" autofocus>
+            <input type="text" name="name" minlength="3" pattern="[\w]*" required autofocus>
         </div>
         <div>
             <span>Room Name</span>
-            <input type="text" name="tf-room">
+            <input type="text" name="room" minlength="3" pattern="[\w]*" required>
         </div>
         <button type="submit">Join</button>
     </form>

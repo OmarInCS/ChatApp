@@ -1,7 +1,19 @@
 
 const socket = io();
+
 socket.on("connect", () => {
     console.log("Connected to server");
+    const urlString = window.location.href;
+    const urlParams = new URL(urlString).searchParams;
+    socket.emit("join", {
+        name: urlParams.get("name"), 
+        room: urlParams.get("room")
+    }, (err) => {
+        if (err) {
+            alert(err);
+            window.location.href = "/";
+        }
+    });
 });
 
 socket.on("disconnect", () => {
@@ -39,11 +51,23 @@ socket.on("newLocationMessage", (message) => {
     scrollToBottom();
 });
 
+socket.on("updateUsersList", (userNames) => {
+    console.log(userNames);
+    let ol = $("aside > ol");
+    ol.html("");
+    userNames.forEach((userName) => {
+        
+        let li = document.createElement("li");
+        li.innerText = userName;
+        ol.append(li);
+
+    });
+});
+
 $("#bt-send").click(() => {
-    socket.emit("createMessage", {
-        from: "user",
-        text: $("#tf-message").val()
-    }, (feedback) => {
+    socket.emit("createMessage",
+        $("#tf-message").val()
+    , (feedback) => {
         console.log(feedback);
     });
 
