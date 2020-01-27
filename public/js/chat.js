@@ -44,6 +44,7 @@ socket.on("newLocationMessage", (message) => {
     div.innerHTML = Mustache.render(template, {
         from: message.from,
         url: message.url,
+        mapUrl: message.mapUrl,
         createdAt: time
     });
     
