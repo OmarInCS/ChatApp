@@ -15,6 +15,37 @@ body {
     height: 100%;
 }
 
+nav {
+    background-color: greenyellow;
+    height: 50px;
+    text-align: center;
+    border-top-right-radius: 8px;
+    border-top-left-radius: 8px;
+    position: relative;
+}
+
+nav > h1 {
+    height: 100%;
+    padding: 10px;
+    color: cornflowerblue;
+}
+
+#bt-show-aside {
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    width: 40px;
+    height: 40px;
+    display: none;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+#bt-show-aside > hr {
+    box-shadow: 0px 0px 1px black;
+    margin: 0px 8px;
+}
+
 aside {
     float: left;
     width: 20%;
@@ -39,6 +70,17 @@ aside > ol > li {
     color: black;
 }
 
+.floating-aside {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    display: block;
+    height: calc(100% - 16px);
+    background-color: cornflowerblue;
+    z-index: 1;
+    box-shadow: 0 0 0 1600px rgba(0,0,0,0.5);
+}
+
 main {
     float: left;
     width: 80%;
@@ -46,13 +88,12 @@ main {
     padding: 0px 8px;
 }
 
+
 #all-messages {
-    height: calc(100% - 50px);
+    height: calc(100% - 100px);
     padding: 8px;
     background-color: #f0f8ff22;
     overflow: auto;
-    border-top-right-radius: 8px;
-    border-top-left-radius: 8px;
 }
 
 form {
@@ -101,3 +142,66 @@ form > button {
 .message_title > span {
     color: gray;
 }
+
+
+/* // Extra small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) { 
+    
+    body {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+    
+    #bt-show-aside {
+        display: flex;
+    }
+
+    aside {
+        display: none;
+        width: 80%;
+    }
+
+    main {
+        width: 100%;
+    }
+    
+ }
+
+/* // Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 767.98px) { 
+    
+    body {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+    
+    #bt-show-aside {
+        display: flex;
+    }
+
+    aside {
+        display: none;
+        width: 50%;
+    }
+
+    main {
+        width: 100%;
+    }
+ }
+
+/* // Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991.98px) { 
+    
+ }
+
+/* // Large devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1199.98px) { 
+    
+ }
+
+/* // Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) { 
+    
+ }

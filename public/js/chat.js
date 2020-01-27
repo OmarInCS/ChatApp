@@ -5,6 +5,8 @@ socket.on("connect", () => {
     console.log("Connected to server");
     const urlString = window.location.href;
     const urlParams = new URL(urlString).searchParams;
+    $("title").html(`Room: ${urlParams.get("room")} | Chat App`);
+    $("nav > h1").html(`Room: ${urlParams.get("room")}`);
     socket.emit("join", {
         name: urlParams.get("name"), 
         room: urlParams.get("room")
@@ -63,6 +65,20 @@ socket.on("updateUsersList", (userNames) => {
         ol.append(li);
 
     });
+});
+
+
+$("#bt-show-aside").click(() => {
+    let isVisible = !$("aside").hasClass("floating-aside");
+    
+    if (isVisible) {
+        $("aside").addClass("floating-aside");
+        return false;
+    }
+});
+
+$("main").click(() => {
+    $("aside").removeClass("floating-aside");
 });
 
 $("#bt-send").click(() => {
